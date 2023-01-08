@@ -75,10 +75,10 @@ app.post("/cheese", async (req, res) => {
 });
 
 // CHEESE Update ROUTE
-app.put("/people/:id", async (req, res) => {
+app.put("/cheese/:id", async (req, res) => {
   try {
     res.json(
-      await People.findByIdAndUpdate(req.params.id, req.body, { new: true })
+      await Cheese.findByIdAndUpdate(req.params.id, req.body, { new: true })
     );
   } catch (error) {
     res.status(400).json(error);
@@ -86,18 +86,18 @@ app.put("/people/:id", async (req, res) => {
 });
 
 // CHEESE Delete ROUTE
-app.delete("/people/:id", async (req, res) => {
+app.delete("/cheese/:id", async (req, res) => {
   try {
-    res.json(await People.findByIdAndRemove(req.params.id));
+    res.json(await Cheese.findByIdAndRemove(req.params.id));
   } catch (error) {
     res.status(400).json(error);
   }
 });
 
 // CHEESE INDEX ROUTE /SHOW?
-app.get("/people/:id", async (req, res) => {
+app.get("/cheese/:id", async (req, res) => {
     try {
-      res.json(await People.findById(req.params.id));
+      res.json(await Cheese.findById(req.params.id));
     } catch (error) {
       res.status(400).json(error);
     }
